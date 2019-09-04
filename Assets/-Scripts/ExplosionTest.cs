@@ -9,11 +9,11 @@ public class ExplosionTest : MonoBehaviour
     [SerializeField] private Transform explosionPos;
     [SerializeField] private float explosionRadius;
 
-    //private Rigidbody[] rigidbodies;
+    private Rigidbody[] rigidbodies;
 
     void Start()
     {
-        //rigidbodies = GetComponentsInChildren<Rigidbody>();
+        rigidbodies = GetComponentsInChildren<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,16 +32,16 @@ public class ExplosionTest : MonoBehaviour
         //    rigidbodies[i].AddExplosionForce(explosionStrengh, explosionPos.position, explosionRadius, 1f);
         //}
     }
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.E))
-    //    {
-    //        for (int i = 0; i < rigidbodies.Length; i++)
-    //        {
-    //            rigidbodies[i].AddExplosionForce(explosionStrengh, explosionPos.position, explosionRadius, 1f);
-    //        }
-    //    }
-    //}
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+           for (int i = 0; i < rigidbodies.Length; i++)
+            {
+                rigidbodies[i].AddExplosionForce(explosionStrengh, explosionPos.position, explosionRadius, 1f);
+            }
+        }
+    }
 
     private void OnDrawGizmos()
     {
